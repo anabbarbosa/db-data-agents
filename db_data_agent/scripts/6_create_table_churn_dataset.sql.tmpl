@@ -1,0 +1,15 @@
+CREATE TABLE spotify.churn_dataset (
+    user_id SERIAL PRIMARY KEY,
+    gender VARCHAR(20),
+    age INT,
+    country_abr CHAR(2) REFERENCES spotify.countries(country_abr),
+    full_country_name VARCHAR(100),
+    subscription_type VARCHAR(30),
+    listening_time INT,
+    songs_played_per_day INT,
+    skip_rate FLOAT,
+    device_type VARCHAR(30),
+    ads_listened_per_week INT,
+    offline_listening BOOLEAN,
+    is_churned BOOLEAN
+);

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Agent</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container-fluid">
+            <div class="row align-items-center">
+                <div class="col">
+                    <img src="/static/images/data-agent-clearpreview.png" alt="Data Agent">
+                </div>
+                <div class="col-auto">
+                    <div class="header-actions">
+                        <button class="btn btn-outline-secondary btn-sm" id="newChatBtn">
+                            Novo Chat
+                        </button>
+                        <button class="btn btn-outline-danger btn-sm ms-2" id="logoutBtn">
+                            Logout
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container-fluid h-100">
+        <div class="row h-100">
+            <div class="col-12 col-lg-10 col-xl-8 mx-auto d-flex flex-column chat-wrapper">
+                <div class="chat-container flex-grow-1" id="chatbox">
+                    <div class="welcome-screen" id="welcomeScreen">
+                        <div class="welcome-content">
+                            <div class="welcome-icon">
+                                <img src="/static/images/data-agent-clearpreview.png" alt="Data Agent">
+                            </div>
+                            <h1>Como posso ajudar você hoje?</h1>
+                            <p>Faça perguntas sobre dados, solicite análises SQL ou converse sobre qualquer assunto.</p>
+                        </div>
+                    </div>
+
+                    <div class="message ai">
+                        <img src="/static/images/2.png" alt="Data Agent" class="ai-avatar">
+                        <div class="message-content">
+                            <span>Olá! Sou seu assistente de dados.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="input-container">
+                    <div class="input-wrapper">
+                        <button class="btn settings-btn-inline" id="settingsBtnInline" type="button">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="5" r="2" />
+                                <circle cx="12" cy="12" r="2" />
+                                <circle cx="12" cy="19" r="2" />
+                            </svg>
+                        </button>
+                        <div class="settings-dropdown" id="settingsDropdown">
+                            <div class="settings-item">
+                                <label class="settings-label">
+                                    <input type="checkbox" id="teachingModeToggle" />
+                                    <span class="checkmark"></span>
+                                    Modo de Aprendizado
+                                </label>
+                            </div>
+                        </div>
+                        <textarea class="form-control input-box" id="textInput" placeholder="Envie uma mensagem..." rows="1"></textarea>
+                        <button class="btn send-btn" id="sendBtn" type="button">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="input-footer text-center">
+                        Data Agent pode cometer erros. Verifique informações importantes.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom JS served by Flask static -->
+    <script src="/static/script.js"></script>
+</body>
+
+</html>

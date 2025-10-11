@@ -1,0 +1,16 @@
+CREATE SCHEMA spotify;
+
+CREATE TABLE IF NOT EXISTS spotify.countries (
+    country_abr CHAR(2) PRIMARY KEY,
+    full_country_name VARCHAR(100) NOT NULL
+);
+
+INSERT INTO spotify.countries (country_abr, full_country_name) VALUES
+('CA', 'Canada'),
+('DE', 'Germany'),
+('AU', 'Australia'),
+('US', 'United States'),
+('UK', 'United Kingdom'),
+('IN', 'India'),
+('FR', 'France'),
+('PK', 'Pakistan');

@@ -1,0 +1,81 @@
+# Data Agent - Requirements
+# Python Data Analysis Agent with Web Interface
+# 
+# INSTALAÇÃO:
+ pip install -r requirements.txt
+# 
+# OU instalar individualmente:
+ pip install flask==3.1.2 flask-cors==6.0.1
+ pip install polars==1.34.0 pandas==2.3.3
+ pip install sqlalchemy==2.0.43 psycopg2-binary==2.9.11
+ pip install requests==2.25.1 click==8.3.0
+ pip install kagglehub==0.3.13
+
+# =============================================================================
+# CORE DEPENDENCIES (REQUIRED)
+# =============================================================================
+
+# Web Framework - Flask e extensões
+flask==3.1.2                 # Framework web principal
+flask-cors==6.0.1            # CORS para requisições cross-origin
+
+# Data Processing - Manipulação de dados
+polars==1.34.0               # Processamento rápido de dados (alternativa ao pandas)
+pandas==2.3.3                # Manipulação e análise de dados
+
+# Database - Conectividade com PostgreSQL
+sqlalchemy==2.0.43           # ORM e conexão com banco de dados
+psycopg2-binary==2.9.11      # Driver PostgreSQL (versão binária)
+
+# HTTP Requests - Comunicação com APIs
+requests==2.25.1             # Requisições HTTP (para OpenAI API)
+
+# Command Line Interface
+click==8.3.0                 # Framework para CLI
+
+# Data Sources - Fontes de dados
+kagglehub==0.3.13            # Download de datasets do Kaggle
+
+# =============================================================================
+# STANDARD LIBRARY (incluídas no Python)
+# =============================================================================
+# Estas bibliotecas já vêm com Python e não precisam ser instaladas:
+# - os          (sistema operacional)
+# - re          (expressões regulares)
+# - json        (manipulação JSON)
+# - hashlib     (hash de senhas)
+# - random      (números aleatórios)
+# - string      (manipulação de strings)
+# - uuid        (identificadores únicos)
+# - decimal     (números decimais)
+# - subprocess  (processos do sistema)
+# - sys         (sistema)
+# - argparse    (parsing de argumentos)
+
+# =============================================================================
+# DEVELOPMENT DEPENDENCIES (OPCIONAL)
+# =============================================================================
+# Descomente as linhas abaixo se quiser instalar dependências de desenvolvimento:
+
+ jupyter==1.0.0              # Para workspace.ipynb
+ pytest==7.0.0               # Para testes
+ pytest-cov==4.0.0           # Cobertura de testes
+ black==23.0.0                # Formatação de código
+ flake8==6.0.0                # Linting
+ mypy==1.0.0                  # Verificação de tipos
+ requests-mock==1.10.0        # Mock para testes de HTTP
+
+# =============================================================================
+# VERIFICAÇÃO DE INSTALAÇÃO
+# =============================================================================
+# Para verificar se tudo foi instalado corretamente:
+ python3 -c "import flask, polars, pandas, sqlalchemy, psycopg2, requests, click, kagglehub; print('✅ Todas as dependências instaladas!')"
+
+# =============================================================================
+# NOTAS IMPORTANTES
+# =============================================================================
+ 1. psycopg2-binary é preferível ao psycopg2 para instalação mais fácil
+ 2. Flask 3.x tem algumas mudanças de API, mas é compatível
+ 3. SQLAlchemy 2.x tem mudanças significativas da versão 1.x
+ 4. Polars é mais rápido que pandas para datasets grandes
+ 5. Kagglehub precisa de autenticação para alguns datasets

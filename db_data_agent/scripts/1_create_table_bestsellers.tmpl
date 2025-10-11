@@ -1,0 +1,14 @@
+CREATE TABLE amazon.best_sellers (
+    rank BIGINT NOT NULL,
+    asin TEXT NOT NULL PRIMARY KEY,
+    product_title TEXT,
+    product_price DOUBLE PRECISION,                                   -- keep as text since your dtype is String
+    product_star_rating DOUBLE PRECISION,
+    product_num_ratings DOUBLE PRECISION,
+    product_url TEXT,
+    product_photo TEXT,
+    rank_change_label TEXT,
+    country_abr CHAR(2) NOT NULL,
+    page BIGINT,
+    full_country_name TEXT
+);

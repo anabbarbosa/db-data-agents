@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS agent.users (
+                    id BIGSERIAL PRIMARY KEY,
+                    user_key TEXT UNIQUE NOT NULL,
+                    username TEXT,
+                    email TEXT,
+                    password_hash TEXT,
+                    user_group TEXT DEFAULT 'amazon',
+                    created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+                );
+
+INSERT INTO agent.users (user_key, username, email, password_hash, user_group)
+VALUES
+  ('user_001', 'sa.spotify', 'spotify@example.com', 'admin_password_1', 'spotify'),
+  ('user_002', 'sa.amazon', 'amazon@example.com', 'admin_password_2', 'amazon');
