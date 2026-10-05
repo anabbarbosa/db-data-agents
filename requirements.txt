@@ -80,3 +80,4 @@ kagglehub==0.3.13            # download datasets from kaggle
  3. sqlalchemy 2.x has significant changes from version 1.x
  4. polars is faster than pandas for large datasets
  5. kagglehub requires authentication for some datasets
+
