@@ -29,6 +29,7 @@ psycopg2-binary==2.9.11      # Driver PostgreSQL (versão binária)
 
 # HTTP Requests - Comunicação com APIs
 requests==2.25.1             # Requisições HTTP (para OpenAI API)
+python-dotenv==1.0.1         # Carrega variáveis de ambiente do arquivo .env
 
 # Command Line Interface
 click==8.3.0                 # Framework para CLI

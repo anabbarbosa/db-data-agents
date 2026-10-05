@@ -1,18 +1,21 @@
 import os
 import re
 import json
+from dotenv import load_dotenv
 import requests
 import polars as pl
 from sqlalchemy import create_engine, text
 from decimal import Decimal
 from db_data_agent.controller import UtilsABC
 
+load_dotenv()
+
 class AgentController(UtilsABC):
     def __init__(self):
         super(UtilsABC, self).__init__()
-        self.gpt_api_url = "https://api.openai.com/v1/chat/completions"
-        self.gpt_model = "gpt-4o-mini"
-        self.api_key = "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"
+        self.gpt_api_url = os.getenv("OPENAI_API_URL", "https://api.openai.com/v1/chat/completions")
+        self.gpt_model = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
+        self.api_key = os.getenv("OPENAI_API_KEY", "")
         
 
     def _convert_decimals_to_float(self, data):

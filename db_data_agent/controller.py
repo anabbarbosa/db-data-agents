@@ -1,21 +1,20 @@
 import os
+from dotenv import load_dotenv
 from sqlalchemy import create_engine, text
 import polars as pl
+
+load_dotenv()
 
 class ProjectUtils():
 
     def __init__(self):
-        # 1) Set your DB URL. Prefer env vars so you don't hardcode passwords.
-        #    Example (bash): export PGUSER=barbosapedroj PGPASSWORD='your_pw' PGDATABASE=mydb
         PGUSER = os.getenv("PGUSER", "postgres")
-        PGPASSWORD = os.getenv("PGPASSWORD", "mypassword")   # replace if not using env var
+        PGPASSWORD = os.getenv("PGPASSWORD", "change-me")
         PGHOST = os.getenv("PGHOST", "localhost")
         PGPORT = os.getenv("PGPORT", "5432")
         PGDATABASE = os.getenv("PGDATABASE", "postgres")
 
         DATABASE_URL = f"postgresql+psycopg://{PGUSER}:{PGPASSWORD}@{PGHOST}:{PGPORT}/{PGDATABASE}"
-
-        # 2) Create the engine (echo=True prints SQL; turn it off if you like)
         self.engine = create_engine(DATABASE_URL, echo=False, future=True)
 
 
