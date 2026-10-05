@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Launcher script for Data Agent with different database options.
-This script demonstrates how to run the system with different configurations.
+launcher script for the data agent with different database options.
+this script demonstrates how to run the system with different configurations.
 """
 
 import subprocess
@@ -9,7 +9,7 @@ import sys
 import argparse
 
 def run_amazon_mode():
-    """Run with Amazon database"""
+    """run with the amazon database"""
     print("Command: python3 main.py --etl 0 --agent 1 --amazon 1 --spotify 0")
     subprocess.run([
         sys.executable, "main.py", 
@@ -20,7 +20,7 @@ def run_amazon_mode():
     ])
 
 def run_spotify_mode():
-    """Run with Spotify database"""
+    """run with the spotify database"""
     print("Command: python3 main.py --etl 0 --agent 1 --amazon 0 --spotify 1")
     subprocess.run([
         sys.executable, "main.py", 
@@ -31,8 +31,8 @@ def run_spotify_mode():
     ])
 
 def run_etl_amazon():
-    """Run ETL only for Amazon"""
-    print("🛒 Running ETL for Amazon data...")
+    """run etl only for amazon"""
+    print("🛒 running etl for amazon data...")
     print("Command: python3 main.py --etl 1 --agent 0 --amazon 1 --spotify 0")
     subprocess.run([
         sys.executable, "main.py", 
@@ -43,7 +43,7 @@ def run_etl_amazon():
     ])
 
 def run_etl_spotify():
-    """Run ETL only for Spotify"""
+    """run etl only for spotify"""
     print("Command: python3 main.py --etl 1 --agent 0 --amazon 0 --spotify 1")
     subprocess.run([
         sys.executable, "main.py", 

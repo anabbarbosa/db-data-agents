@@ -1,46 +1,46 @@
-# Python bytecode and cache
+# python bytecode and cache
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
 
-# Virtual environments
+# virtual environments
 .venv/
 venv/
 env/
 
-# Environment files
+# environment files
 .env
 .env.*
 !.env.example
 
-# OS generated files
+# os generated files
 .DS_Store
 Thumbs.db
 
-# Logs and local runtime files
+# logs and local runtime files
 *.log
 
-# IDE/editor settings
+# ide/editor settings
 .vscode/
 .idea/
 
-# Local database and tmp files
+# local database and tmp files
 *.sqlite3
 *.db
 *.tmp
 
-# Jupyter notebook checkpoints
+# jupyter notebook checkpoints
 .ipynb_checkpoints/
 
-# Build artifacts
+# build artifacts
 build/
 dist/
 *.egg-info/
 
-# Local secrets and generated data (optional)
+# local secrets and generated data (optional)
 secrets/
 *.pem
 
-# Project-specific local artifacts
+# project-specific local artifacts
 workspace.ipynb

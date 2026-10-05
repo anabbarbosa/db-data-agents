@@ -1,54 +1,54 @@
 #!/bin/bash
 
-# Data Agent - Comandos Úteis
-# Este arquivo contém comandos úteis para gerenciar o Data Agent
+# data agent - useful commands
+# this file contains useful commands for managing the data agent
 
-echo "🚀 Data Agent - Comandos Úteis"
+echo "🚀 data agent - useful commands"
 echo "================================"
 
-# Função para mostrar ajuda
+# function to show help
 show_help() {
     echo ""
-    echo "📋 COMANDOS DISPONÍVEIS:"
+    echo "📋 available commands:"
     echo ""
-    echo "🔧 INSTALAÇÃO:"
-    echo "  ./commands.sh install     - Instala todas as dependências"
-    echo "  ./commands.sh check       - Verifica se tudo está instalado"
-    echo "  ./commands.sh update      - Atualiza todas as dependências"
+    echo "🔧 installation:"
+    echo "  ./commands.sh install     - install all dependencies"
+    echo "  ./commands.sh check       - verify whether everything is installed"
+    echo "  ./commands.sh update      - update all dependencies"
     echo ""
-    echo "🗄️  BANCO DE DADOS:"
-    echo "  ./commands.sh setup-db    - Configura o banco de dados"
-    echo "  ./commands.sh etl-amazon  - Executa ETL para Amazon"
-    echo "  ./commands.sh etl-spotify - Executa ETL para Spotify"
+    echo "🗄️  database:"
+    echo "  ./commands.sh setup-db    - configure the database"
+    echo "  ./commands.sh etl-amazon  - run etl for amazon"
+    echo "  ./commands.sh etl-spotify - run etl for spotify"
     echo ""
-    echo "🌐 SERVIDOR WEB:"
-    echo "  ./commands.sh start-web   - Inicia o servidor web"
-    echo "  ./commands.sh stop-web    - Para o servidor web"
-    echo "  ./commands.sh restart-web - Reinicia o servidor web"
+    echo "🌐 web server:"
+    echo "  ./commands.sh start-web   - start the web server"
+    echo "  ./commands.sh stop-web    - stop the web server"
+    echo "  ./commands.sh restart-web - restart the web server"
     echo ""
-    echo "🖥️  CLI:"
-    echo "  ./commands.sh cli-amazon  - Executa CLI para usuário Amazon"
-    echo "  ./commands.sh cli-spotify - Executa CLI para usuário Spotify"
+    echo "🖥️  cli:"
+    echo "  ./commands.sh cli-amazon  - run the amazon cli"
+    echo "  ./commands.sh cli-spotify - run the spotify cli"
     echo ""
-    echo "🧹 LIMPEZA:"
-    echo "  ./commands.sh clean       - Remove arquivos temporários"
-    echo "  ./commands.sh reset       - Reset completo do projeto"
+    echo "🧹 cleanup:"
+    echo "  ./commands.sh clean       - remove temporary files"
+    echo "  ./commands.sh reset       - full project reset"
     echo ""
 }
 
-# Instalar dependências
+# install dependencies
 install_deps() {
-    echo "📦 Instalando dependências..."
+    echo "📦 installing dependencies..."
     pip install -r requirements.txt
-    echo "✅ Instalação concluída!"
+    echo "✅ installation completed!"
 }
 
-# Verificar instalação
+# verify installation
 check_install() {
-    echo "🔍 Verificando instalação..."
+    echo "🔍 verifying installation..."
     python3 -c "
 import flask, polars, pandas, sqlalchemy, psycopg2, requests, click, kagglehub
-print('✅ Todas as dependências instaladas!')
+print('✅ all dependencies are installed!')
 print(f'Flask: {flask.__version__}')
 print(f'Polars: {polars.__version__}')
 print(f'Pandas: {pandas.__version__}')
@@ -60,101 +60,101 @@ print(f'Kagglehub: {kagglehub.__version__}')
 "
 }
 
-# Atualizar dependências
+# update dependencies
 update_deps() {
-    echo "🔄 Atualizando dependências..."
+    echo "🔄 updating dependencies..."
     pip install --upgrade pip
     pip install --upgrade flask flask-cors polars pandas sqlalchemy psycopg2-binary requests click kagglehub
-    echo "✅ Atualização concluída!"
+    echo "✅ update completed!"
 }
 
-# Configurar banco de dados
+# configure the database
 setup_db() {
-    echo "🗄️ Configurando banco de dados..."
+    echo "🗄️ configuring the database..."
     python3 main.py --etl 1 --agent 0
-    echo "✅ Banco de dados configurado!"
+    echo "✅ database configured!"
 }
 
-# ETL Amazon
+# etl for amazon
 etl_amazon() {
-    echo "🛒 Executando ETL Amazon..."
+    echo "🛒 running amazon etl..."
     python3 main.py --etl 1 --agent 0 --user-group amazon
-    echo "✅ ETL Amazon concluído!"
+    echo "✅ amazon etl completed!"
 }
 
-# ETL Spotify
+# etl for spotify
 etl_spotify() {
-    echo "🎵 Executando ETL Spotify..."
+    echo "🎵 running spotify etl..."
     python3 main.py --etl 1 --agent 0 --user-group spotify
-    echo "✅ ETL Spotify concluído!"
+    echo "✅ spotify etl completed!"
 }
 
-# Iniciar servidor web
+# start the web server
 start_web() {
-    echo "🌐 Iniciando servidor web..."
-    echo "Acesse: http://localhost:5000"
-    echo "Credenciais:"
-    echo "  Spotify: sa.spotify / admin_password_1"
-    echo "  Amazon:  sa.amazon  / admin_password_1"
+    echo "🌐 starting the web server..."
+    echo "access: http://localhost:5000"
+    echo "credentials:"
+    echo "  spotify: sa.spotify / admin_password_1"
+    echo "  amazon: sa.amazon / admin_password_1"
     echo ""
-    echo "Pressione Ctrl+C para parar o servidor"
-    python3 -m db_data_agent.agent.template.app
+    echo "press ctrl+c to stop the server"
+    python3 -m data_agent.agent.template.app
 }
 
-# Parar servidor web
+# stop the web server
 stop_web() {
-    echo "🛑 Parando servidor web..."
-    pkill -f "db_data_agent.agent.template.app"
-    echo "✅ Servidor parado!"
+    echo "🛑 stopping the web server..."
+    pkill -f "data_agent.agent.template.app"
+    echo "✅ server stopped!"
 }
 
-# Reiniciar servidor web
+# restart the web server
 restart_web() {
-    echo "🔄 Reiniciando servidor web..."
-    pkill -f "db_data_agent.agent.template.app"
+    echo "🔄 restarting the web server..."
+    pkill -f "data_agent.agent.template.app"
     sleep 2
-    echo "🌐 Iniciando servidor web..."
-    python3 -m db_data_agent.agent.template.app &
-    echo "✅ Servidor reiniciado!"
+    echo "🌐 starting the web server..."
+    python3 -m data_agent.agent.template.app &
+    echo "✅ server restarted!"
 }
 
-# CLI Amazon
+# amazon cli
 cli_amazon() {
-    echo "🛒 Iniciando CLI para usuário Amazon..."
+    echo "🛒 starting the amazon cli..."
     python3 main.py --etl 0 --agent 1 --username sa.amazon --password admin_password_1
 }
 
-# CLI Spotify
+# spotify cli
 cli_spotify() {
-    echo "🎵 Iniciando CLI para usuário Spotify..."
+    echo "🎵 starting the spotify cli..."
     python3 main.py --etl 0 --agent 1 --username sa.spotify --password admin_password_1
 }
 
-# Limpeza
+# cleanup temporary files
 clean() {
-    echo "🧹 Limpando arquivos temporários..."
+    echo "🧹 cleaning temporary files..."
     find . -type f -name "*.pyc" -delete
     find . -type d -name "__pycache__" -exec rm -rf {} +
     find . -type f -name "*.log" -delete
-    echo "✅ Limpeza concluída!"
+    echo "✅ cleanup completed!"
 }
 
-# Reset completo
+# full project reset
 reset() {
-    echo "⚠️  ATENÇÃO: Isso irá remover todos os dados!"
-    read -p "Tem certeza? (y/N): " -n 1 -r
+    echo "⚠️ attention: this will remove all data!"
+    read -p "are you sure? (y/N): " -n 1 -r
     echo
     if [[ $REPLY =~ ^[Yy]$ ]]; then
-        echo "🔄 Fazendo reset completo..."
-        pkill -f "db_data_agent.agent.template.app"
+        echo "🔄 running full reset..."
+        pkill -f "data_agent.agent.template.app"
         clean
-        echo "✅ Reset concluído!"
+        echo "✅ reset completed!"
     else
-        echo "❌ Reset cancelado."
+        echo "❌ reset cancelled."
     fi
 }
 
-# Processar argumentos
+# process command arguments
 case "$1" in
     install)
         install_deps
@@ -199,7 +199,7 @@ case "$1" in
         show_help
         ;;
     *)
-        echo "❌ Comando não reconhecido: $1"
+        echo "❌ command not recognized: $1"
         show_help
         ;;
 esac

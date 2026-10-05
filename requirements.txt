@@ -1,10 +1,10 @@
 # Data Agent - Requirements
 # Python Data Analysis Agent with Web Interface
-# 
-# INSTALAÇÃO:
+#
+# installation:
  pip install -r requirements.txt
-# 
-# OU instalar individualmente:
+#
+# or install individually:
  pip install flask==3.1.2 flask-cors==6.0.1
  pip install polars==1.34.0 pandas==2.3.3
  pip install sqlalchemy==2.0.43 psycopg2-binary==2.9.11
@@ -15,68 +15,68 @@
 # CORE DEPENDENCIES (REQUIRED)
 # =============================================================================
 
-# Web Framework - Flask e extensões
-flask==3.1.2                 # Framework web principal
-flask-cors==6.0.1            # CORS para requisições cross-origin
+# web framework - flask and extensions
+flask==3.1.2                 # main web framework
+flask-cors==6.0.1            # cors for cross-origin requests
 
-# Data Processing - Manipulação de dados
-polars==1.34.0               # Processamento rápido de dados (alternativa ao pandas)
-pandas==2.3.3                # Manipulação e análise de dados
+# data processing - data manipulation
+polars==1.34.0               # fast data processing alternative to pandas
+pandas==2.3.3                # data manipulation and analysis
 
-# Database - Conectividade com PostgreSQL
-sqlalchemy==2.0.43           # ORM e conexão com banco de dados
-psycopg2-binary==2.9.11      # Driver PostgreSQL (versão binária)
+# database - postgresql connectivity
+sqlalchemy==2.0.43           # orm and database connection layer
+psycopg2-binary==2.9.11      # postgresql driver (binary build)
 
-# HTTP Requests - Comunicação com APIs
-requests==2.25.1             # Requisições HTTP (para OpenAI API)
-python-dotenv==1.0.1         # Carrega variáveis de ambiente do arquivo .env
+# http requests - api communication
+requests==2.25.1             # http requests for the openai api
+python-dotenv==1.0.1         # loads environment variables from the .env file
 
-# Command Line Interface
-click==8.3.0                 # Framework para CLI
+# command line interface
+click==8.3.0                 # cli framework
 
-# Data Sources - Fontes de dados
-kagglehub==0.3.13            # Download de datasets do Kaggle
-
-# =============================================================================
-# STANDARD LIBRARY (incluídas no Python)
-# =============================================================================
-# Estas bibliotecas já vêm com Python e não precisam ser instaladas:
-# - os          (sistema operacional)
-# - re          (expressões regulares)
-# - json        (manipulação JSON)
-# - hashlib     (hash de senhas)
-# - random      (números aleatórios)
-# - string      (manipulação de strings)
-# - uuid        (identificadores únicos)
-# - decimal     (números decimais)
-# - subprocess  (processos do sistema)
-# - sys         (sistema)
-# - argparse    (parsing de argumentos)
+# data sources - data providers
+kagglehub==0.3.13            # download datasets from kaggle
 
 # =============================================================================
-# DEVELOPMENT DEPENDENCIES (OPCIONAL)
+# STANDARD LIBRARY (included in python)
 # =============================================================================
-# Descomente as linhas abaixo se quiser instalar dependências de desenvolvimento:
-
- jupyter==1.0.0              # Para workspace.ipynb
- pytest==7.0.0               # Para testes
- pytest-cov==4.0.0           # Cobertura de testes
- black==23.0.0                # Formatação de código
- flake8==6.0.0                # Linting
- mypy==1.0.0                  # Verificação de tipos
- requests-mock==1.10.0        # Mock para testes de HTTP
-
-# =============================================================================
-# VERIFICAÇÃO DE INSTALAÇÃO
-# =============================================================================
-# Para verificar se tudo foi instalado corretamente:
- python3 -c "import flask, polars, pandas, sqlalchemy, psycopg2, requests, click, kagglehub; print('✅ Todas as dependências instaladas!')"
+# these libraries already come with python and do not need installation:
+# - os          (operating system)
+# - re          (regular expressions)
+# - json        (json handling)
+# - hashlib     (password hashing)
+# - random      (random numbers)
+# - string      (string handling)
+# - uuid        (unique identifiers)
+# - decimal     (decimal numbers)
+# - subprocess  (system processes)
+# - sys         (system)
+# - argparse    (argument parsing)
 
 # =============================================================================
-# NOTAS IMPORTANTES
+# DEVELOPMENT DEPENDENCIES (OPTIONAL)
 # =============================================================================
- 1. psycopg2-binary é preferível ao psycopg2 para instalação mais fácil
- 2. Flask 3.x tem algumas mudanças de API, mas é compatível
- 3. SQLAlchemy 2.x tem mudanças significativas da versão 1.x
- 4. Polars é mais rápido que pandas para datasets grandes
- 5. Kagglehub precisa de autenticação para alguns datasets
+# uncomment the lines below if you want to install development dependencies:
+
+ jupyter==1.0.0              # for workspace.ipynb
+ pytest==7.0.0               # for tests
+ pytest-cov==4.0.0           # test coverage
+ black==23.0.0               # code formatting
+ flake8==6.0.0                # linting
+ mypy==1.0.0                  # type checking
+ requests-mock==1.10.0        # mock for http tests
+
+# =============================================================================
+# INSTALLATION VERIFICATION
+# =============================================================================
+# to verify that everything was installed correctly:
+ python3 -c "import flask, polars, pandas, sqlalchemy, psycopg2, requests, click, kagglehub; print('✅ all dependencies are installed!')"
+
+# =============================================================================
+# IMPORTANT NOTES
+# =============================================================================
+ 1. psycopg2-binary is preferred over psycopg2 for easier installation
+ 2. flask 3.x has some api changes, but it remains compatible
+ 3. sqlalchemy 2.x has significant changes from version 1.x
+ 4. polars is faster than pandas for large datasets
+ 5. kagglehub requires authentication for some datasets
