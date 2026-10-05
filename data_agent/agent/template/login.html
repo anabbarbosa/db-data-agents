@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Data Agent - Login and Registration">
+    <title>Data Agent - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="/static/images/2.png" type="image/png">
+    <meta name="theme-color" content="#ffa8d9">
+    <style>
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            margin: 0;
+            background: #FF69B4;
+            background: radial-gradient(circle, rgba(255, 105, 180, 1) 0%, rgba(0, 0, 32, 1) 85%, rgba(0, 0, 32, 1) 100%);
+            color: #e2e8f0;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        }
+
+        .form-signin {
+            max-width: 400px;
+            padding: 2rem;
+            background: rgba(15, 23, 42, 0.8);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+
+        .form-signin img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            display: block;
+            border: 3px solid #ffa8d9;
+        }
+
+        .form-signin h1 {
+            color: #e2e8f0;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .form-floating {
+            margin-bottom: 1rem;
+        }
+
+        .form-floating>.form-control {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            color: #e2e8f0;
+            border-radius: 10px;
+            padding: 1rem 0.75rem;
+        }
+
+        .form-floating>.form-control:focus {
+            background: rgba(15, 23, 42, 0.8);
+            border-color: #ffa8d9;
+            box-shadow: 0 0 0 0.2rem rgba(255, 168, 217, 0.25);
+            color: #e2e8f0;
+        }
+
+        .form-floating>label {
+            color: #94a3b8;
+            padding: 1rem 0.75rem;
+        }
+
+        .form-floating>.form-control:focus~label,
+        .form-floating>.form-control:not(:placeholder-shown)~label {
+            color: #ffa8d9;
+        }
+
+        .form-select {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(148, 163, 184, 0.3);
+            color: #e2e8f0;
+            border-radius: 10px;
+        }
+
+        .form-select:focus {
+            background: rgba(15, 23, 42, 0.8);
+            border-color: #ffa8d9;
+            box-shadow: 0 0 0 0.2rem rgba(255, 168, 217, 0.25);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #ffa8d9 0%, #ff0090 100%);
+            border: none;
+            border-radius: 10px;
+            padding: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #ff0090 0%, #ffa8d9 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 0, 144, 0.3);
+        }
+
+        .btn-success {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            border: none;
+            border-radius: 10px;
+            padding: 0.75rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-success:hover {
+            background: linear-gradient(135deg, #059669 0%, #10b981 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(16, 185, 129, 0.3);
+        }
+
+        .btn-link {
+            color: #ffa8d9;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .btn-link:hover {
+            color: #ff0090;
+            text-decoration: underline;
+        }
+
+        .form-check-input:checked {
+            background-color: #ffa8d9;
+            border-color: #ffa8d9;
+        }
+
+        .form-check-input:focus {
+            box-shadow: 0 0 0 0.2rem rgba(255, 168, 217, 0.25);
+        }
+
+        .form-check-label {
+            color: #94a3b8;
+        }
+
+        .alert {
+            border-radius: 10px;
+            border: none;
+            background: rgba(239, 68, 68, 0.1);
+            color: #fca5a5;
+            border-left: 4px solid #ef4444;
+        }
+
+        .bd-mode-toggle {
+            display: none;
+        }
+
+        /* Animations */
+        .form-signin {
+            animation: slideInUp 0.6s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 576px) {
+            .form-signin {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body class="d-flex align-items-center py-4">
+    <main class="form-signin w-100 m-auto">
+        <form id="loginForm">
+            <img class="mb-4" src="/static/images/2.png" alt="Data Agent" width="72" height="57">
+            <h1 class="h3 mb-3 fw-normal">Acesso ao Agente</h1>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="floatingInput" name="username" placeholder="Usuário"
+                    required>
+                <label for="floatingInput">Usuário</label>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" name="password" placeholder="Senha"
+                    required>
+                <label for="floatingPassword">Senha</label>
+            </div>
+            <div class="form-check text-start my-3">
+                <input class="form-check-input" type="checkbox" value="remember-me" id="checkDefault">
+                <label class="form-check-label" for="checkDefault">Guardar Acesso</label>
+            </div>
+            <button class="btn btn-primary w-100 py-2" type="submit">Entrar</button>
+            <div id="errorMessage" class="alert alert-danger mt-3" style="display: none;"></div>
+        </form>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#loginForm').submit(function (e) {
+                e.preventDefault();
+                var formData = new FormData(this);
+
+                $.ajax({
+                    url: '/login',
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (response) {
+                        if (response.success) {
+                            window.location.href = response.redirect;
+                        } else {
+                            $('#errorMessage').text(response.message).show();
+                        }
+                    },
+                    error: function (xhr) {
+                        var response = xhr.responseJSON;
+                        $('#errorMessage').text(response ? response.message : 'Erro no servidor').show();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
